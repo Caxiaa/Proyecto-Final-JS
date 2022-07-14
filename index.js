@@ -5,14 +5,18 @@ class Producto {
         this.precio = parseFloat(precio);
         this.stock = parseInt(stock);
     }
+    addProduct = (product)=>{
+        productos.push(product);
+        return product;
+    }
 }
 
 let productos = [];
 
-const addProduct = (product) =>{
-    productos.push(product);
-    return product;   
-}
+// const addProduct = (product) =>{
+//     productos.push(product);
+//     return product;   
+// }
 
 const readProducts = ()=>{
     for(let i=0;i<productos.length;i++){
@@ -76,7 +80,7 @@ Ingrese ESC para salir`);
             let precio = prompt("Ingrese el precio del producto:");
             let stock = prompt("Ingrese la cantidad de stock en unidades del producto:");
             let product = new Producto(productos.length+1,nombre,precio,stock);
-            let producto = addProduct(product);
+            let producto = product.addProduct(product);
             alert(`El producto "${producto.nombre}" fue agregado correctamente!`);
             break;
         case "2":
