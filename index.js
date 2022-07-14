@@ -19,6 +19,9 @@ let productos = [];
 // }
 
 const readProducts = ()=>{
+    if(productos.length == 0){
+        return alert("No hay productos cargados al sistema.");
+    }
     for(let i=0;i<productos.length;i++){
         alert(`Producto ${i+1}:
         -${productos[i].nombre}
@@ -77,7 +80,15 @@ Ingrese ESC para salir`);
     switch(ingreso){
         case "1":
             let nombre = prompt("Ingrese el nombre del producto:");
+            if(nombre == ""){
+                alert("No puedes ingresar un producto sin nombre.");
+                break;
+            }
             let precio = prompt("Ingrese el precio del producto:");
+            if(precio == ""){
+                alert("No puedes ingresar un producto sin precio.");
+                break;
+            }
             let stock = prompt("Ingrese la cantidad de stock en unidades del producto:");
             let product = new Producto(productos.length+1,nombre,precio,stock);
             let producto = product.addProduct(product);
