@@ -32,6 +32,9 @@ const readProducts = ()=>{
 }
 
 const deleteProduct = (id)=>{
+    if(id == ""){
+        return alert("No puedes ingresar un id vacio");
+    }
     let productDelete = productos.filter((producto)=>producto.id != id)
     for(let i=0;i<productos.length;i++){
         if(productos[i].id==id){
@@ -44,6 +47,9 @@ const deleteProduct = (id)=>{
 }
 
 const updateProduct = (id) =>{
+    if(id == ""){
+        return alert("No puedes ingresar un id vacio");
+    }
     for(let i=0;i<productos.length;i++){
         if(productos[i].id == id){
             let ingreso = prompt(`Queres modificar el producto ${productos[i].nombre}? (Ingrese si o SI)`);
@@ -64,6 +70,9 @@ const updateProduct = (id) =>{
 }
 
 const findProduct = (id)=>{
+    if(id == ""){
+        return alert("No puedes ingresar un id vacio");
+    }
     let find = productos.find((producto)=>producto.id == id)
     if(!find){
         return alert(`El id ${id} no corresponde a ningun producto!`);
@@ -79,7 +88,10 @@ Ingrese 3 para eliminar producto\nIngrese 4 para modificar producto\nIngrese 5 p
 Ingrese ESC para salir`);
     switch(ingreso){
         case "1":
-            let nombre = prompt("Ingrese el nombre del producto:");
+            let nombre = prompt("Ingrese el nombre del producto o ESC/esc para volver atras:");
+            if((nombre == "ESC") || (nombre == "esc")){
+                break;
+            }
             if(nombre == ""){
                 alert("No puedes ingresar un producto sin nombre.");
                 break;
@@ -98,15 +110,24 @@ Ingrese ESC para salir`);
             readProducts();
             break;
         case "3":
-            let idDelete = prompt("Ingrese el id del producto que desea eliminar: ");
+            let idDelete = prompt("Ingrese el id del producto que desea eliminar o ESC/esc para volver atras: ");
+            if((idDelete == "ESC") || (idDelete == "esc")){
+                break;
+            }
             deleteProduct(idDelete);
             break;
         case "4":
-            let idUpdate = prompt("Ingrese el id del producto que quiere mofidicar: ");
+            let idUpdate = prompt("Ingrese el id del producto que quiere mofidicar o ESC/esc para volver atras: ");
+            if((idUpdate == "ESC") || (idUpdate == "esc")){
+                break;
+            }
             updateProduct(idUpdate);
             break;
         case "5":
-            let idFind = prompt("Ingrese el id del producto que quiere encontrar: ");
+            let idFind = prompt("Ingrese el id del producto que quiere encontrar o ESC/esc para volver atras: ");
+            if((idFind == "ESC") || (idFind == "esc")){
+                break;
+            }
             let encontrado = findProduct(idFind);
             alert(`El producto buscado fue ${encontrado.nombre}:
             Precio: $${encontrado.precio}
