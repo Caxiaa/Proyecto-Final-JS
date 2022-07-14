@@ -38,9 +38,9 @@ const deleteProduct = (id)=>{
     let productDelete = productos.filter((producto)=>producto.id != id)
     for(let i=0;i<productos.length;i++){
         if(productos[i].id==id){
-            alert(`El producto ${productos[i].nombre} fue eliminado correctamente!`);
+            return alert(`El producto ${productos[i].nombre} fue eliminado correctamente!`);
         }else{
-            alert(`El id ${id} no corresponde a ningun producto!`);
+            return alert(`El id ${id} no corresponde a ningun producto!`);
         }
     }
     productos = productDelete;
