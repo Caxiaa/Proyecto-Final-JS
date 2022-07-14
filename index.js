@@ -38,12 +38,11 @@ const deleteProduct = (id)=>{
     let productDelete = productos.filter((producto)=>producto.id != id)
     for(let i=0;i<productos.length;i++){
         if(productos[i].id==id){
-            return alert(`El producto ${productos[i].nombre} fue eliminado correctamente!`);
-        }else{
-            return alert(`El id ${id} no corresponde a ningun producto!`);
+            alert(`El producto ${productos[i].nombre} fue eliminado correctamente!`);
+            return productos = productDelete;
         }
     }
-    productos = productDelete;
+    return alert(`El id ${id} no corresponde a ningun producto!`);
 }
 
 const updateProduct = (id) =>{
