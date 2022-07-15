@@ -76,7 +76,11 @@ const findProduct = (id)=>{
     if(!find){
         return alert(`El id ${id} no corresponde a ningun producto!`);
     }
-    return find;
+    return alert(`El producto buscado fue ${find.nombre}:
+    Precio: $${find.precio}
+    Stock: ${find.stock} unidades
+    ID: ${find.id}
+    `)
 }
 
 let ingreso;
@@ -127,12 +131,7 @@ Ingrese ESC para salir`);
             if((idFind == "ESC") || (idFind == "esc")){
                 break;
             }
-            let encontrado = findProduct(idFind);
-            alert(`El producto buscado fue ${encontrado.nombre}:
-            Precio: $${encontrado.precio}
-            Stock: ${encontrado.stock} unidades
-            ID: ${encontrado.id}
-            `)
+            findProduct(idFind);
             break;
     }
 } while (ingreso != "ESC");
